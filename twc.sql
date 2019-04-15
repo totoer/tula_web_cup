@@ -6,6 +6,7 @@ create table twc.client(
     access_token text not null,
     refresh_token text not null,
     expires_in integer not null,
+    is_remove boolean not null default false,
     create_at timestamp not null default now()
 );
 

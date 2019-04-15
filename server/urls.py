@@ -1,4 +1,5 @@
 
+from tornado.web import StaticFileHandler
 from handlers.client.login import Login
 from handlers.client.logout import Logout
 from handlers.client.oauth import OAuth
@@ -12,4 +13,12 @@ urls = [
     (r'/api/oauth/?', OAuth,),
     (r'/api/?', Image,),
     (r'/api/image_like/?', ImageLike,),
+    (r"/static/(.*)/?", StaticFileHandler, {"path": "../client_ui/dist/static"}),
+    (
+        r"/(.*)", StaticFileHandler,
+        {
+            "path": "../client_ui/dist/",
+            "default_filename": "index.html",
+        },
+    ),
 ]

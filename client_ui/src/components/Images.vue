@@ -145,7 +145,9 @@ export default {
       })
     },
     login() {
-      window.location.assign("https://oauth.yandex.ru/authorize?response_type=code&client_id=e42c69e9344142478684742b834770b1&state="+window.location.href);
+      // window.location.assign("https://oauth.yandex.ru/authorize?response_type=code&client_id=e42c69e9344142478684742b834770b1&state="+window.location.href);
+
+      window.location.assign("https://oauth.yandex.ru/authorize?response_type=code&client_id=e42c69e9344142478684742b834770b1");
     },
     logout() {
       axios.get('/api/logout').then((response) => {

@@ -44,7 +44,10 @@ class ClientModel(BaseModel):
 
     @classmethod
     async def get_by_id(cls, client_id):
-        query = Query.from_(client).where(client.id==client_id).select('*')
+        query = Query.from_(client).where(
+            (client.id==client_id) & \
+            (client.is_remove==False)
+        ).select('*')
         cursor = await cls.db.execute(query.get_sql())
         return cursor.fetchone()
 
