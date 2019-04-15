@@ -1,0 +1,9 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.venv
+
+### Vue ###
+node_modules
+package-lock.json
