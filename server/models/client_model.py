@@ -53,5 +53,5 @@ class ClientModel(BaseModel):
 
     @classmethod
     async def delete(cls, client_id):
-        query = Query.from_(client).delete().where(client.id==client_id)
+        query = Query.update(client).set('is_remove', True).where(client.id==client_id)
         await cls.db.execute(query.get_sql())
