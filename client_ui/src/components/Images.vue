@@ -130,11 +130,9 @@ export default {
 
       document.addEventListener('scroll', (e) => {
         var scrolled = window.pageYOffset || document.documentElement.scrollTop,
-          h = window.outerHeight * ((this.images.offset / this.images.limit) + 1);
-
-        console.log(scrolled, h, scrolled / h);
+          h = document.documentElement.clientHeight * ((this.images.offset / this.images.limit) + 1);
         
-        if((scrolled / h) > 0.99 && scrollLoaderFlag==false) {
+        if((scrolled / h) > 0.8 && scrollLoaderFlag==false) {
           scrollLoaderFlag = true;
           this.$store.commit('images/SET_OFFSET', this.images.offset + this.images.limit);
           this.$store.dispatch('images/fetch').then(() => {
